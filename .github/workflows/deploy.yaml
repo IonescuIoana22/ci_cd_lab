@@ -12,7 +12,6 @@ jobs:
   # Job to compile the application
   compile:
     # Specify the Os for the runner (container)
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
   # ✅ TODO 02 - Run only after test job
     needs: test
