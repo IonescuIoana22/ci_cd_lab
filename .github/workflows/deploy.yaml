@@ -13,7 +13,7 @@ jobs:
   compile:
     # Specify the Os for the runner (container)
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
-  
+
   # ✅ TODO 02 - Run only after test job
     needs: test
     runs-on: ubuntu-latest
@@ -29,17 +29,6 @@ jobs:
       - name: Build binary
         run: go build -v ./...
 
-    steps:
-      # Step 1: Checkout the repository code into the runner
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # Step 2: Set up Go environment with version 1.22
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.22'
-
       # Step 3: Download Go module dependencies
       - name: Install dependencies
         run: go mod download
@@ -47,8 +36,6 @@ jobs:
       # Step 4: Compile the Go application into a binary named 'myapp'
       - name: Compile binary
         run: go build -o myapp
-
-  
 
   test:
     runs-on: ubuntu-latest
